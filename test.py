@@ -14,8 +14,7 @@ def hello_world():
 
 @app.route('/requrements')
 def requrements():
-    f = open('requirements.txt', encoding='utf-16')
-    return f.read().splitlines()
+    return open('requirements.txt', encoding='utf-16').read().splitlines()
 
 
 @app.route('/generate-users')
@@ -26,6 +25,8 @@ def generate_users():
     g_u.close()
     f = open('generate_users.txt')
     return f.read().splitlines()
+
+
 
 
 @app.route('/mean')

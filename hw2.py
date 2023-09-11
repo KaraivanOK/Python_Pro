@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, render_template
 from faker import Faker
 import csv
 import requests
@@ -19,14 +19,9 @@ def requrements():
 
 @app.route('/generate-users')
 def generate_users():
-    with open('generate_users.txt', 'w') as g_u:
-        for _ in range(100):
-            g_u.write(f'{fake.email()} -- {fake.name()}\n')
-    g_u.close()
-    f = open('generate_users.txt')
-    return f.read().splitlines()
-
-
+    count = request.args.get('count')
+    f = [f'{fake.email()} -- {fake.name()}\n' for _ in range(int(count))]
+    return f
 
 
 @app.route('/mean')

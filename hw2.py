@@ -21,7 +21,7 @@ def requrements():
 def generate_users():
     count = request.args.get('count')
     f = [f'{fake.email()} -- {fake.name()}\n' for _ in range(int(count))]
-    return f
+    return type(count)
 
 
 @app.route('/mean')

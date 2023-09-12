@@ -9,19 +9,22 @@ fake = Faker()
 
 @app.route('/')
 def hello_world():
-    return 'Hello World!'
+    return render_template('index.html')
 
 
 @app.route('/requrements')
 def requrements():
-    return open('requirements.txt', encoding='utf-16').read().splitlines()
+    f = open('requirements.txt', encoding='utf-16').read().splitlines()
+    return render_template('requrements.html', f=f)
 
 
 @app.route('/generate-users')
 def generate_users():
     count = request.args.get('count')
+    if count is None:
+        count = 100
     f = [f'{fake.email()} -- {fake.name()}\n' for _ in range(int(count))]
-    return type(count)
+    return render_template('generate-users.html', f=f)
 
 
 @app.route('/mean')
@@ -34,8 +37,10 @@ def mean():
             count += 1
             height_inches += float(row[' "Height(Inches)"'])
             weight_pounds += float(row[' "Weight(Pounds)"'])
-        return f'Средний рост = {(height_inches / count) * 2.54} см' \
-               f' Средний вес = {(weight_pounds / count) * 0.45359237} кг'
+        height_sm = f'Средний рост = {(height_inches / count) * 2.54} см'
+        weight_kg = f' Средний вес = {(weight_pounds / count) * 0.45359237} кг'
+        f = [height_sm, weight_kg]
+        return render_template('mean.html', f=f)
 
 
 @app.route('/space')
@@ -45,4 +50,4 @@ def space():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tracks and duration</title>
+</head>
+<body>
+<h1>The most Shazamed songs of the week in the world</h1>
+<ol>
+    {% for m in tracks_all: %}
+    <li>{{ m[0] }}----{{ m[1] }}c</li>
+    {% endfor %}
+</ol>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>distinct names</title>
+</head>
+<body>
+<h1>Distinct names</h1>
+<ol>
+    {% for name in distinct_names: %}
+    <li>{{ name[0] }}</li>
+    {% endfor %}
+</ol>
+</body>
+</html>

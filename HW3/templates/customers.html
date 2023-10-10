@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>customers</title>
+</head>
+<body>
+<h1>List of clients</h1>
+<ol>
+    {% for m in customers_table: %}
+    <p>{{ m[0] }}. {{ m[1] }} {{ m[2] }}</p>
+    {% endfor %}
+</ol>
+</body>
+</html>

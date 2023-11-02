@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Students list</title>
+</head>
+<body>
+<h1>Python group</h1>
+<ol>
+    {% for x in students %}
+    <li>{{ x.first_name }} {{ x.last_name }}, {{ x.age }}years.</li>
+    {% endfor %}
+</ol>
+</body>
+</html>

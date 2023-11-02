@@ -24,7 +24,7 @@ def generate_users():
     if count is None:
         count = 100
     f = [f'{fake.email()} -- {fake.name()}\n' for _ in range(int(count))]
-    return render_template('generate-users.html', f=f)
+    return render_template('generate_students.html', f=f)
 
 
 @app.route('/mean')

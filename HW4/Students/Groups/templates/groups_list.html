@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Groups list</title>
+</head>
+<body>
+<h1>Our groups</h1>
+<ol>
+    {% for x in groups %}
+    <li>{{ x.academic_subject}} - {{ x.first_name }} {{ x.last_name }} (teacher) - {{ x.count_students }} (students).
+    </li>
+    {% endfor %}
+</ol>
+</body>
+</html>

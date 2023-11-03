@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Teachers list</title>
+</head>
+<body>
+<h1>Our teachers</h1>
+<ol>
+    {% for x in teachers %}
+    <li>{{ x.first_name }} {{ x.last_name }}, {{ x.age }}years - {{ x.academic_subject}}.</li>
+    {% endfor %}
+</ol>
+</body>
+</html>
